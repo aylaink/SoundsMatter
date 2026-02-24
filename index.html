@@ -13,18 +13,18 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){ dataLayer.push(arguments); }
       gtag("consent", "default", {
-        ad_personalization: "denied",
-        ad_user_data: "denied",
         ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
         analytics_storage: "denied"
       });
       function loadGA(){
-        const script = document.createElement("script");
-        script.async = true;
-        script.src = "https://www.googletagmanager.com/gtag/js?id=G-2377332KYL"; 
-        document.head.appendChild(script);
+        const s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"; 
+        document.head.appendChild(s);
         gtag("js", new Date());
-        gtag("config", "G-2377332KYL");
+        gtag("config", "G-XXXXXXXXXX");
       }
     </script>
 </head>
@@ -51,69 +51,58 @@
     <footer>
         <p>&copy; 2026 Sounds Matter. All rights reserved.</p>
     </footer>
-<style>
-#cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #111;
-  color: white;
-  padding: 20px;
-  font-size: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 99999;
-  font-family: sans-serif;
-}
-#cookie-banner button {
-  margin-left: 10px;
-  padding: 10px 15px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-}
-.accept-btn { background: #4caf50; color: white; }
-.reject-btn { background: #777; color: white; }
-</style>
-<div id="cookie-banner">
-  <span>Usamos cookies para analizar el tráfico. ¿Aceptas las cookies de análisis?</span>
-  <div>
-    <button class="reject-btn" onclick="rejectCookies()">Rechazar</button>
-    <button class="accept-btn" onclick="acceptCookies()">Aceptar</button>
-  </div>
-</div>
-<script>
-function acceptCookies() {
-  // Activar GA en Consent Mode
-  gtag("consent", "update", {
-    analytics_storage: "granted",
-    ad_storage: "denied"
-  });
-  localStorage.setItem("cookies_accepted", "yes");
-  document.getElementById("cookie-banner").style.display = "none";
-  loadGA();
-}
-function rejectCookies() {
-  // Mantener GA bloqueado
-  gtag("consent", "update", {
-    analytics_storage: "denied",
-    ad_storage: "denied"
-  });
-  localStorage.setItem("cookies_accepted", "no");
-  document.getElementById("cookie-banner").style.display = "none";
-}
-(function(){
-  const pref = localStorage.getItem("cookies_accepted");
-  if(pref === "yes"){
-    document.getElementById("cookie-banner").style.display = "none";
-    loadGA();
-  }
-  if(pref === "no"){
-    document.getElementById("cookie-banner").style.display = "none";
-  }
-})();
-</script>
+    <style>
+        #cookie-banner {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: #111; color: white;
+            padding: 20px;
+            font-size: 14px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 99999;
+            font-family: sans-serif;
+        }
+        #cookie-banner button {
+            margin-left: 10px; padding: 10px 15px;
+            cursor: pointer; border: none; border-radius: 5px;
+        }
+        .accept-btn { background: #4caf50; color:white; }
+        .reject-btn { background: #777; color:white; }
+    </style>
+    <div id="cookie-banner">
+        <span>Usamos cookies para analizar el tráfico. ¿Aceptas las cookies de análisis?</span>
+        <div>
+            <button class="reject-btn" onclick="rejectCookies()">Rechazar</button>
+            <button class="accept-btn" onclick="acceptCookies()">Aceptar</button>
+        </div>
+    </div>
+    <script>
+        function acceptCookies() {
+            gtag("consent", "update", {
+                analytics_storage: "granted",
+                ad_storage: "denied"
+            });
+            localStorage.setItem("cookies_accepted", "yes");
+            document.getElementById("cookie-banner").style.display = "none";
+            loadGA();
+        }
+        function rejectCookies() {
+            gtag("consent", "update", {
+                analytics_storage: "denied",
+                ad_storage: "denied"
+            });
+            localStorage.setItem("cookies_accepted", "no");
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+        (function(){
+            const pref = localStorage.getItem("cookies_accepted");
+            if(pref === "yes"){
+                document.getElementById("cookie-banner").style.display = "none";
+                loadGA();
+            }
+            if(pref === "no"){
+                document.getElementById("cookie-banner").style.display = "none";
+            }
+        })();
+    </script>
 </body>
 </html>
