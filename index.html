@@ -53,20 +53,35 @@
     </footer>
     <style>
         #cookie-banner {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: #111; color: white;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #111;
+            color: #fff;
             padding: 20px;
             font-size: 14px;
-            display: flex; justify-content: space-between; align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             z-index: 99999;
-            font-family: sans-serif;
+        }
+        #cookie-banner .btns {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
         }
         #cookie-banner button {
-            margin-left: 10px; padding: 10px 15px;
-            cursor: pointer; border: none; border-radius: 5px;
+            padding: 10px 15px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
         }
-        .accept-btn { background: #4caf50; color:white; }
-        .reject-btn { background: #777; color:white; }
+        .reject-btn { background: #777; color: #fff; }
+        .accept-btn { background: #4caf50; color: #fff; }
     </style>
     <div id="cookie-banner">
         <span>We use cookies to analyze traffic. Do you accept analytics cookies?</span>
